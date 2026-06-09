@@ -1,123 +1,150 @@
-# Cancer Diagnosis: Imaging and the Tissue Sample
+# Chapter 2 — Cancer Diagnosis: Imaging and the Tissue Sample
+*The Scan Was Never the Diagnosis.*
 
-## Learning Objectives
+A 64-year-old woman has a 2-centimeter mass in the tail of her pancreas, found incidentally on a CT scan ordered for back pain. The radiologist's report reads "mass suspicious for adenocarcinoma." Her family hears the word *adenocarcinoma* and assumes the diagnosis is made.
 
-After working through this chapter, you should be able to:
+It is not.
 
-- **Explain** why imaging produces a probability of cancer rather than a diagnosis, and identify the sources of false positives and false negatives for CT, MRI, ultrasound, and PET.
-- **Justify** why tissue examined by a pathologist is the diagnostic ground truth, and describe what histology and immunohistochemistry add that imaging cannot.
-- **Analyze** sampling error in biopsy — how a needle can miss the cancer, hit an unrepresentative region, or obtain too little tissue for molecular testing — and explain why a negative biopsy does not exclude cancer.
-- **Compare** fine-needle aspiration and core needle biopsy by what each can and cannot establish.
-- **Integrate** the diagnostic chain (suspicion → imaging → biopsy → pathology) and locate where each link can break.
+An endoscopic ultrasound-guided fine-needle aspiration returns "atypical cells, cannot exclude malignancy — nondiagnostic." A second aspiration returns "benign pancreatic acinar tissue." Now there are three pieces of evidence pointing in different directions: an image that looks like cancer, a first sample that is ambiguous, and a second sample that is reassuring. The oncologist has to decide whether the reassuring biopsy means there is no cancer — or whether the needle simply missed it.
 
-## Opening Case
+Pancreatic tumors grow inside dense reactive tissue. A needle can pass directly through the mass and pull back stroma rather than tumor. A negative result here is genuinely ambiguous: it could mean no cancer, or it could mean the cancer was there and the needle didn't reach it.
 
-A 64-year-old woman has a 2-centimeter mass in the tail of the pancreas found incidentally on a CT scan ordered for back pain. The radiologist's report reads "mass suspicious for adenocarcinoma." Her family hears the word *adenocarcinoma* and assumes the diagnosis is made. It is not. An endoscopic ultrasound-guided fine-needle aspiration is performed; the cytology returns "atypical cells, cannot exclude malignancy — nondiagnostic." A second aspiration returns "benign pancreatic acinar tissue."
+The image was never the diagnosis. The image was a probability. The tissue is supposed to be the ground truth — but only if the tissue is the right tissue. Understanding that chain — how imaging assigns a probability, why tissue is privileged, and how tissue can mislead when the sample is wrong — is what this chapter is about.
 
-Now there are three pieces of evidence pointing in different directions: an image that looks like cancer, a first sample that is ambiguous, and a second sample that is reassuring. Her oncologist has to decide whether the reassuring biopsy means there is no cancer — or whether the needle simply missed it. Pancreatic tumors are surrounded by dense reactive tissue; a needle can pass through the mass and pull back stroma rather than tumor. A negative result here is genuinely ambiguous: it could mean *no cancer* or *missed the cancer*.
+---
 
-The image was never the diagnosis. The image was a probability. The tissue is supposed to be the ground truth — but only if the tissue is *the right tissue*. This chapter is about that chain: how imaging assigns a probability, why tissue is the arbiter, and how the tissue itself can lie when the sample is wrong.
+Every imaging modality reports a signal: tissue density, water content, sound reflection, metabolic activity. Each of these signals correlates with malignancy imperfectly. The radiologist converts the signal into a probability, usually expressed in calibrated language. "Suspicious for" is not "diagnosed as." "Cannot exclude" is not "consistent with." These words encode genuine uncertainty about whether a specific set of cells, in a specific patient, are malignant.
 
-## Core Concepts
+**Computed tomography** reconstructs cross-sectional anatomy from X-rays rotated around the patient. It is the workhorse for detecting masses, evaluating metastatic spread, and guiding needles to lesions. Its soft-tissue contrast is limited — adjacent structures with similar densities can be hard to distinguish — and it exposes patients to ionizing radiation, roughly 8–15 millisieverts for a body CT versus about 0.1 for a chest X-ray (NCI, *CT Scans and Cancer Fact Sheet*). CT is also the substrate for RECIST — the Response Evaluation Criteria in Solid Tumors — the standardized measurement rules that allow tumor size to be compared reliably across serial scans and between institutions (Eisenhauer et al., 2009).
 
-### Imaging is probabilistic, not definitive
+**Magnetic resonance imaging** uses magnetic fields and radiofrequency pulses; different pulse sequences emphasize different tissue water environments, giving it superior soft-tissue contrast for the brain, spinal cord, pelvic structures, and breast. Breast MRI is the most sensitive imaging modality for breast cancer detection, at the cost of lower specificity — more false positives. No ionizing radiation. Longer acquisition time, contraindicated with certain metallic implants.
 
-When a doctor says "the scan shows cancer," what the scan actually shows is an abnormality whose appearance is *consistent with* cancer to some degree. Every imaging modality reports a signal — density, water content, sound reflection, metabolic uptake — that correlates with malignancy imperfectly. The radiologist converts that signal into a probability, often expressed in calibrated language ("suspicious," "indeterminate," "likely benign").
+**Ultrasound** uses high-frequency sound waves and is real-time, portable, and radiation-free. It excels at guiding needles to superficial lesions in real time and at characterizing solid versus cystic masses. Its quality is substantially operator-dependent — the same lesion can look different in different hands. Gas and bone block sound transmission, limiting its use in the lung and for structures deep to the ribs.
 
-**Computed tomography (CT)** reconstructs cross-sectional anatomy from X-rays acquired around the patient [NCI, *Cancer Imaging Basics*]. It is the workhorse for detecting masses and metastases and for guiding biopsy, but soft-tissue contrast is limited and it carries radiation (a body CT delivers roughly 8–15 mSv versus ~0.1 mSv for a chest X-ray) [source chapter; NCI, *CT Scans and Cancer Fact Sheet*]. CT is also the substrate for **RECIST (Response Evaluation Criteria In Solid Tumors)**, the standardized rules for measuring tumor size across scans.
+**Positron emission tomography** with fluorodeoxyglucose — PET-FDG — images metabolic function rather than anatomy. FDG is a glucose analog labeled with fluorine-18; cells with high glucose uptake trap it, and the positron emission is detected. Cancer cells, with their high metabolic rates, accumulate FDG. But so does inflammation, active infection, healing surgical sites, and brown adipose tissue. And some tumors — mucinous cancers, some indolent lymphomas, some brain metastases from certain primaries — take up FDG poorly. PET-FDG raises probability at a hot spot and lowers it at a cold one. It does not establish diagnosis at either.
 
-**Magnetic resonance imaging (MRI)** uses magnetic fields and radiofrequency pulses; different sequences emphasize different tissue properties. It gives superior soft-tissue contrast for brain, spinal cord, soft-tissue tumors, pelvic cancers, and breast — breast MRI is the most sensitive modality for breast cancer detection [source chapter].
+The unifying point: each modality has a characteristic false-positive and false-negative profile that is determined by the biology of what it measures. CT misses lesions below its resolution threshold and conflates similar-density structures. MRI misses fast-moving processes and certain calcified lesions. Ultrasound depends on who is holding the probe. PET lights up inflammation and misses low-metabolism tumors. No combination of imaging eliminates the false-positive rate. None eliminates the false-negative rate. The image raises or lowers the probability of malignancy; it does not determine it.
 
-**Ultrasound** uses high-frequency sound, is real-time and radiation-free, and is excellent for superficial structures and image-guided biopsy. Its quality is **operator-dependent**, and it cannot penetrate gas or bone well.
+<!-- → [DIAGRAM: diagnostic workup flow — clinical suspicion → imaging (probability raised or lowered) → biopsy (sampling) → pathology (ground truth, conditional on representative sampling) → molecular workup; failure modes annotated at each arrow: imaging: false positive/false negative by modality; biopsy: needle miss, sampling bias, insufficient tissue; pathology: sampling error propagated forward] -->
 
-**Positron emission tomography (PET)** with **fluorodeoxyglucose (FDG)** — a radiolabeled glucose analog trapped in metabolically active cells — images function rather than anatomy [NCI, *Cancer Imaging Basics*]. Cancer cells, with elevated glucose uptake, light up. But so does inflammation, infection, brown fat, and recent surgery (false positives), while some indolent or mucinous tumors barely take up FDG at all (false negatives). PET is read alongside CT or MRI (PET-CT) to combine function with anatomy.
+---
 
-The unifying point: each modality has a characteristic false-positive and false-negative profile. None of them diagnoses cancer. They raise or lower the probability that tissue, when obtained, will show cancer.
+A radiographic abnormality, however compelling, is not a cancer diagnosis. Cancer diagnosis requires cells or tissue examined by a pathologist — this is not convention or caution, it is a reflection of what malignancy is. Malignancy is defined by what cells look like, how they are organized, whether they have invaded through basement membranes, and whether they display features of de-differentiation that predict behavior. These features are visible only under a microscope. An image shows a mass. It does not show the cells inside it.
 
-<!-- → [DIAGRAM: diagnostic workup flow — clinical suspicion → imaging (probability) → biopsy (sampling) → pathology (ground truth) → molecular workup, with failure modes annotated at each arrow] -->
+The standard tissue preparation for solid tumors is **FFPE** — formalin-fixed, paraffin-embedded. The tissue is fixed to stop autolysis and preserve morphology, then infiltrated with paraffin to allow thin sectioning. Sections are cut at a few micrometers and mounted on glass slides. The routine stain is **hematoxylin and eosin**: hematoxylin binds nucleic acids and stains nuclei blue; eosin binds proteins and stains cytoplasm and extracellular matrix pink. The contrast between the two reveals cell shape, nuclear size and regularity, the ratio of nucleus to cytoplasm, mitotic figures, glandular or squamous architecture, necrosis, and invasion into vessels or nerves. A trained pathologist reads this landscape and makes the diagnosis: what cell type, what grade, what is the margin status, what has the tumor invaded.
 
-### Tissue is the ground truth
+The pathology report is the foundation document for treatment — not the imaging report, not the laboratory values, not the clinical impression. The report establishes what the cancer is. Everything else establishes what to do about it.
 
-A radiographic abnormality, however suggestive, is not a cancer diagnosis. **Cancer diagnosis requires tissue or cells examined by a pathologist** [NCI, *Tests and Procedures Used to Diagnose Cancer*]. Why is tissue privileged over the image? Because malignancy is defined by what cells look like and how they are organized — features visible only under a microscope.
+**Immunohistochemistry** extends the morphological reading. Antibodies against specific proteins are applied to the tissue section; secondary antibodies carry a chromogen that stains where the protein is present. This lets the pathologist identify a tumor's lineage and its therapeutic targets. Cytokeratins identify carcinomas and distinguish them from sarcomas and lymphomas. TTF-1 identifies lung and thyroid origin among adenocarcinomas. CD20 marks B-cell lymphomas. Estrogen receptor and progesterone receptor status in breast cancer directly determines whether hormonal therapy applies. HER2 overexpression or amplification determines trastuzumab eligibility. PD-L1 expression informs checkpoint inhibitor selection. Mismatch-repair deficiency, detectable by IHC loss of MLH1, MSH2, MSH6, or PMS2, identifies tumors likely to respond to pembrolizumab regardless of histological type.
 
-The pathologist fixes the tissue (formalin, then paraffin embedding — **FFPE**, the standard preparation), cuts thin sections, and stains them. The routine stain is **hematoxylin and eosin (H&E)**: hematoxylin turns nuclei blue, eosin turns cytoplasm pink, and the contrast reveals cell morphology and tissue architecture. The diagnosis rests on cell shape, nuclear features (enlargement, irregularity, prominent nucleoli), how cells are arranged (glands, sheets, nests), and context (invasion, necrosis). The pathology report names the tumor type, its **grade** (how closely it resembles normal tissue), its margins, and whether tumor has invaded vessels or nerves. This report is the foundation document for treatment.
+IHC is what converts "adenocarcinoma" into "lung adenocarcinoma, TTF-1 positive, PD-L1 TPS 80%" — a diagnosis with enough specificity that treatment can be assigned. The morphology tells you what kind of thing it is. The IHC tells you which one.
 
-### Immunohistochemistry: when H&E is not enough
+---
 
-Often morphology alone cannot distinguish two cancers, or identify where a metastasis came from. **Immunohistochemistry (IHC)** applies antibodies against specific proteins, then stains where the protein is present, letting the pathologist read a tumor's lineage and therapeutic targets [source chapter]. IHC identifies lineage (cytokeratins for carcinomas, CD20 for B-cell lymphomas), determines hormone-receptor status (ER/PR in breast cancer), and flags therapeutic targets (HER2, PD-L1, mismatch-repair status). IHC is what turns "adenocarcinoma" into "lung adenocarcinoma, TTF-1 positive, PD-L1 high" — a diagnosis a treatment can act on.
+Tissue is ground truth only if the tissue is representative of the lesion. This is the hardest idea in this chapter, and it is the one that the opening case turns on.
 
-### Sampling error: when the tissue lies
+A biopsy samples a tiny fraction of a heterogeneous mass through a needle a millimeter or two in diameter. Three distinct failures are possible.
 
-Here is the chapter's hardest idea. Tissue is ground truth *only if the tissue is representative of the lesion*. A biopsy samples a tiny fraction of a heterogeneous mass through a needle the width of a pencil lead. Three things can go wrong:
+**The needle misses the tumor.** It passes through the mass and samples adjacent normal or reactive tissue instead. In pancreatic adenocarcinoma, the tumor often constitutes a minority of the mass volume; the bulk is dense desmoplastic stroma — activated fibroblasts, collagen, and inflammatory cells — that surrounds and compresses the malignant glands. A needle aimed at the radiographic center of the mass can aspirate stroma and return benign acinar cells or inflammatory tissue while the tumor sits millimeters away.
 
-- The needle **misses the tumor entirely**, pulling back adjacent normal or reactive tissue (the Opening Case).
-- The needle hits the mass but samples an **unrepresentative region** — necrotic core, or a low-grade area of a tumor whose lethal high-grade region lies elsewhere.
-- The needle obtains tissue but **too little** for the full molecular workup that modern treatment requires.
+**The needle samples an unrepresentative region.** It hits the mass but catches a necrotic core, a low-grade area, or a region of reactive change rather than the viable, diagnostically informative tumor. In a large, heterogeneous tumor, the region biopsied may not carry the mutations or the grade that drive the lethal behavior. This is a version of the spatial heterogeneity problem: the sample is genuine tumor tissue, just not the tissue that matters most.
 
-The consequence is asymmetric and crucial: **a positive biopsy is highly reliable, but a negative biopsy does not exclude cancer.** A positive result means malignant cells were seen — they are there. A negative result means *this sample* showed no malignancy, which is consistent with no cancer or with a missed cancer. The strength of a negative depends on how confident you are that the needle was in the right place.
+**The needle obtains too little tissue.** It enters the right region and retrieves tumor cells, but the material is insufficient for the full molecular profiling that modern treatment requires. A diagnosis can be made from a small sample. A complete molecular workup — next-generation sequencing of a gene panel, PD-L1 quantification, HER2 amplification by FISH — may require substantially more tissue than a fine-needle aspiration provides.
 
-### The two main needles
+The asymmetry of these failures is critical: **a positive biopsy is highly reliable; a negative biopsy does not exclude cancer.** A positive result means malignant cells were identified — they were present in the sample. A negative result means this sample showed no malignancy, which is consistent with no cancer in the lesion, or with a cancer that the needle did not reach. The reliability of a negative result is bounded by how confident you are that the needle sampled the right place.
 
-**Fine-needle aspiration (FNA)** uses a thin needle to aspirate loose cells for cytology — rapid, minimal, good for thyroid nodules and lymph nodes, but it yields *cells without architecture* and often too little material for molecular testing. **Core needle biopsy** uses a larger needle to obtain a cylinder of tissue, preserving architecture and providing enough material for IHC and molecular profiling [source chapter]. The choice trades invasiveness against how much the sample can establish.
+---
 
-## Worked Example
+The two main needle approaches trade off invasiveness against how much the sample can establish.
 
-**Situation.** Return to the woman with the pancreatic-tail mass. Image: suspicious for adenocarcinoma. First FNA: atypical, nondiagnostic. Second FNA: benign acinar tissue. The team must decide: stop (call it benign) or proceed (repeat sampling or resect).
+**Fine-needle aspiration** uses a thin needle — typically 22–25 gauge — to aspirate loose cells, which are smeared on a slide and read as cytology. The procedure is fast, well-tolerated, and usable for superficial lesions and for endoscopic guidance. FNA yields cells but not architecture — the pathologist can identify malignant cells but cannot determine whether they have invaded beyond a basement membrane, cannot always distinguish well-differentiated cancer from reactive atypia, and usually cannot obtain enough material for molecular profiling. FNA is appropriate when cytological confirmation is all that is needed — confirming lymph node metastasis in a patient with a known primary, for instance — and when the architecture and molecular material the next treatment decision requires are not necessary.
 
-**First attempt (the dead end).** "Two biopsies, and the more recent one is clearly benign. Tissue beats imaging — the mass is not cancer; reassure her." This reasoning correctly ranks tissue above imaging but mishandles the *negative* biopsy. It treats "benign tissue obtained" as equivalent to "lesion is benign." For a pancreatic mass, those are not the same statement.
+**Core needle biopsy** uses a larger needle — typically 14–18 gauge — with a spring-loaded mechanism that cuts a cylinder of tissue a millimeter or two in diameter and a centimeter or more long. The cylinder preserves architecture: the pathologist can see how cells are arranged relative to each other and to surrounding tissue, can assess invasion, and has enough material for IHC and molecular testing. Core biopsy is the preferred approach when the diagnosis requires architectural assessment or when treatment planning requires a molecular profile. Its complication rate is low but not zero — bleeding, infection, pneumothorax for lung lesions, pancreatitis for pancreatic sampling.
 
-**Reasoning with the numbers.** Suppose, from the imaging features and clinical context, the **pretest probability** of malignancy is high — say 80%. EUS-guided FNA of solid pancreatic masses has good sensitivity but it is not perfect; reported sensitivity sits roughly in the 80–90% range, meaning **10–20% of true cancers yield a non-malignant aspirate** [verify against current EUS-FNA literature]. Apply Bayes informally. Pretest odds of malignancy are 80:20 = 4:1. A negative result is about 15% likely if cancer is present (an imperfect-sensitivity miss) and about 95% likely if cancer is absent, giving a likelihood ratio of 0.15/0.95 ≈ 0.16. Posterior odds ≈ 4 × 0.16 ≈ 0.64, which converts to a **post-biopsy probability of malignancy still around 39%** — far too high to call benign.
+For any given lesion, the choice between FNA and core is a question of what the diagnosis needs to establish and what the downstream treatment decision will require. A thyroid nodule can often be diagnosed by FNA cytology; the diagnosis of follicular carcinoma, which requires the identification of capsular or vascular invasion, cannot be made on FNA at all and requires surgical excision of the whole nodule. A retroperitoneal soft-tissue mass requires core biopsy both to establish histological subtype — which determines whether surgery, radiation, or chemotherapy comes first — and to provide tissue for molecular profiling that identifies targetable alterations.
 
-The dense desmoplastic stroma around pancreatic adenocarcinoma is exactly the kind of tissue that fills a needle with reactive, non-malignant cells while the tumor sits millimeters away. The benign result is consistent with a missed sampling, not a benign lesion.
+---
 
-**Resolution.** The team does *not* reassure. They repeat sampling with a core technique to obtain architecture and more material, and present the case at a multidisciplinary conference; if repeat sampling remains nondiagnostic against a high pretest probability, resection for definitive pathology is considered. The image set the probability; the negative tissue could not overturn it because the negative tissue might be the wrong tissue.
+Return to the woman with the pancreatic mass. Image is highly suspicious. First FNA: nondiagnostic. Second FNA: benign acinar tissue. The team must decide whether to accept the benign result or proceed.
 
-**The lesson.** A negative biopsy is only as strong as your confidence that the needle sampled the lesion. Always interpret a biopsy result against the pretest probability the imaging and clinic established — a negative result lowers that probability but, when sensitivity is imperfect and pretest probability is high, may not lower it enough to act on.
+The tempting reasoning: tissue beats imaging; the most recent tissue shows no cancer; call it benign and reassure her. This correctly ranks tissue above imaging but makes a specific error — it treats "benign tissue obtained" as equivalent to "the lesion is benign." For a pancreatic mass, those are not the same statement.
 
-**The limit.** This reasoning cuts both ways and has a cost. Refusing to accept negative biopsies drives repeat procedures, each with its own complication risk (bleeding, pancreatitis, pneumothorax depending on site). The skill is not "never trust a negative" but calibrating how much a given negative should move you — which requires knowing the test's sensitivity and the pretest probability, neither of which is printed on the pathology report.
+Work through the numbers. From the imaging features and clinical context, the pretest probability of malignancy is high — say 80%. EUS-guided FNA of solid pancreatic masses has a sensitivity in the 80–90% range, meaning 10–20% of true cancers yield a non-malignant aspirate (NCI, *Tests and Procedures*). Apply this informally. The pretest odds are 80:20 = 4:1 in favor of cancer. A negative result is roughly 15% likely if cancer is present (a missed sampling) and 95% likely if cancer is absent — a likelihood ratio of about 0.16. Posterior odds of cancer are approximately 4 × 0.16 = 0.64, corresponding to a post-biopsy probability of malignancy around 39%.
 
-## Common Misconceptions
+Thirty-nine percent is not a benign result. It is a result that leaves more than one-in-three chance that the patient has cancer and the needle missed it. The benign tissue is consistent with two explanations — no cancer, or the cancer was present and the dense stroma deflected or filled the needle. The image set the probability; the negative biopsy could not overturn it, because when sensitivity is imperfect and pretest probability is high, even a reassuring result leaves substantial residual probability.
 
-**"The scan showed cancer, so the diagnosis is made."** Imaging reports a probability, not a diagnosis. The Opening Case began with a scan "suspicious for adenocarcinoma" — language that explicitly encodes uncertainty. Without tissue, "cancer" is a clinical hypothesis. Treating the image as the diagnosis skips the only step that can confirm malignancy.
+The correct course is not reassurance. It is repeat sampling with a core technique to obtain architecture and more material, presentation at a multidisciplinary conference, and consideration of surgical resection for definitive pathology if repeat sampling remains nondiagnostic against a high pretest probability.
 
-**"A negative biopsy rules out cancer."** A negative biopsy means *this sample* showed no malignancy. Because needles can miss, a negative result against a high pretest probability may leave the probability of cancer substantial — as the Worked Example computed (~39% remaining). The positive biopsy is reliable; the negative biopsy is conditional on having sampled the right place.
+The principle works in both directions and has a real cost. Refusing to accept negative biopsies drives repeat procedures, each carrying its own complication risk. The skill is not "never trust a negative" but calibrated interpretation: how much does this specific negative result, from this specific technique, against this specific pretest probability, move the posterior? That requires knowing the test's sensitivity and the pretest probability — neither of which is printed on the pathology report.
 
-**"PET lights up cancer, so a hot spot is cancer."** FDG-PET images glucose uptake, which is elevated in cancer but also in inflammation, infection, and healing surgical sites. A PET-positive focus raises probability; it does not establish malignancy. Conversely, indolent and mucinous tumors can be PET-negative, so a cold scan does not exclude cancer.
+---
 
-**"More tissue is always better, so always do the biggest biopsy."** The right biopsy is the one that obtains *representative, sufficient* tissue at acceptable risk — not the largest. FNA is appropriate when cytology answers the question; core biopsy is needed when architecture and molecular material are required. Choosing wrong wastes a procedure or under-samples for the molecular workup the next chapter depends on.
+The diagnostic chain in oncology is: clinical suspicion, then imaging to assign a probability, then biopsy to sample the tissue, then pathology to examine it, then molecular workup to characterize it for treatment. Each link can break in its characteristic way.
+
+Imaging breaks by producing false positives that lead to unnecessary biopsies or false negatives that miss cancers. The false-positive and false-negative profiles differ by modality: CT for anatomy with limited soft-tissue contrast, MRI for soft-tissue detail with lower specificity in some settings, PET for metabolic function that lights up inflammation as readily as cancer.
+
+Biopsy breaks by sampling the wrong tissue — missing the lesion, hitting a non-representative region, or obtaining too little for the downstream workup. The failure is silent: the report comes back and says what was in the sample, not whether the sample was the right tissue.
+
+Pathology breaks when the tissue is genuinely ambiguous — atypical but not diagnostic, like the first FNA in the opening case. IHC extends the resolution, but it cannot compensate for a sample that contained no tumor cells.
+
+The whole chain is only as strong as its weakest link, and the weakest link is almost always the biopsy — not the imaging, not the pathology reading, but the question of whether the needle was in the right place.
+
+---
 
 ## Exercises
 
-1. **(Understand.)** Explain in two or three sentences why a pathologist's reading of tissue is treated as the diagnostic ground truth while a radiologist's reading of an image is not, even when both experts are equally skilled.
+**Warm-up**
 
-2. **(Apply.)** A lung nodule is FDG-avid on PET (SUV high). List three benign processes that could produce this and three tumor types that could be FDG-negative despite being malignant. State, in one sentence each, how the PET result should change your estimated probability of cancer up or down.
+1. *[Recall — moderate]* Explain in three sentences why a pathologist's reading of tissue is treated as the diagnostic ground truth while a radiologist's reading of an image is not, even when both experts are equally skilled. Your answer should name what the pathologist sees that the radiologist cannot, and why that difference defines malignancy.
+*What this tests: whether you understand the epistemological basis for tissue diagnosis — it is not just hierarchy, it is that malignancy is defined by cellular features visible only under the microscope.*
 
-3. **(Apply+ — produce a calculation.)** A breast core biopsy has sensitivity 95% for a sampled lesion. A radiologist estimates the pretest probability of malignancy for a particular mass at 60% (BI-RADS 4C). The biopsy returns benign. Using a likelihood-ratio or 2×2 approach, estimate the post-biopsy probability of malignancy. Then state whether you would accept the benign result or recommend re-biopsy, and justify the threshold you used.
+2. *[Recall — moderate]* Name three benign processes that can produce an FDG-avid focus on PET and two tumor types that can be FDG-negative despite being malignant. For each false positive, name the biological mechanism that elevates glucose uptake; for each false negative, name the mechanism that reduces it.
+*What this tests: understanding PET as a functional rather than anatomical modality — the false-positive and false-negative profiles follow from the biology of glucose uptake, not from imaging artifact.*
 
-4. **(Produce — a decision flow.)** Draw the diagnostic chain for a suspected liver lesion: clinical suspicion → imaging choice → biopsy choice → pathology → IHC. At each arrow, write the dominant failure mode (e.g., "ultrasound operator-dependent," "needle misses lesion," "insufficient tissue for IHC") and what you would do to mitigate it.
+3. *[Recall — moderate]* State the asymmetry of biopsy results — why a positive biopsy is reliable in a way a negative biopsy is not — and name the three specific mechanisms by which a needle can return a negative result from a lesion that contains cancer.
+*What this tests: the central conceptual claim of the biopsy section — the positive-negative asymmetry and the physical mechanisms that produce false negatives.*
 
-5. **(Evaluate.)** Compare FNA and core needle biopsy for a 2-cm thyroid nodule versus a 4-cm retroperitoneal soft-tissue mass. Which would you choose for each, and what specifically does the choice depend on — diagnosis alone, or the need for molecular material downstream?
+**Application**
+
+4. *[Apply — moderate-hard]* A breast core biopsy has sensitivity of 95% for a sampled lesion. A radiologist estimates the pretest probability of malignancy for a particular mass at 60% (BI-RADS 4C). The biopsy returns benign. Using a likelihood-ratio or 2×2 approach, calculate the post-biopsy probability of malignancy. Then state whether you would accept the benign result or recommend re-biopsy, justify the threshold you used, and explain how your answer would change if the pretest probability were 30% instead of 60%.
+*What this tests: applying Bayesian reasoning to a biopsy result; understanding that the same test result carries different clinical implications at different pretest probabilities.*
+
+5. *[Apply — moderate-hard]* Compare FNA and core needle biopsy for a 2-cm thyroid nodule versus a 4-cm retroperitoneal soft-tissue mass. Which would you choose for each? Your answer should specify what diagnosis each case requires, whether architectural assessment is necessary, and whether molecular profiling for downstream treatment planning changes the choice.
+*What this tests: matching biopsy technique to diagnostic requirement — FNA when cytology is sufficient, core when architecture and molecular material are required.*
+
+6. *[Apply — hard]* A lung nodule is 8 mm, FDG-avid on PET with an SUV of 6.4, and has spiculated margins on CT. A bronchoscopic biopsy returns normal bronchial mucosa. The pulmonologist considers the case closed. Using the positive-negative asymmetry of biopsy results and the pretest probability logic from the pancreatic-mass example, explain why the pulmonologist's reasoning is potentially wrong, what specific sampling failure could explain the result, and what the appropriate next step is.
+*What this tests: applying the negative-biopsy reasoning to a new clinical scenario; connecting imaging probability to the interpretation of a negative result.*
+
+**Synthesis**
+
+7. *[Synthesis — hard]* Draw the diagnostic chain for a suspected liver lesion in a 55-year-old with known hepatitis B cirrhosis: clinical suspicion → imaging choice → biopsy choice → pathology → IHC. At each arrow, write the dominant failure mode and one mitigation. Then explain how the pretest probability for hepatocellular carcinoma changes the biopsy decision — specifically, at what level of pretest probability established by imaging criteria (LI-RADS) would current guidelines allow treatment without biopsy, and what is the reasoning that justifies that exception to the tissue-is-ground-truth principle.
+*What this tests: integrating the full diagnostic chain; applying the pretest-probability logic to a real clinical scenario where the "tissue is required" rule has a justified exception.*
+
+8. *[Synthesis — hard]* An oncologist receives a pathology report on a lung mass: "poorly differentiated carcinoma, TTF-1 negative, p40 negative, synaptophysin weakly positive." The oncologist needs to determine the primary site and whether the patient is eligible for a KRAS G12C inhibitor. Explain what the IHC pattern establishes and does not establish about cell lineage, what additional IHC markers you would request to narrow the differential, and what the molecular testing requirement means for the biopsy — specifically whether the current sample is likely sufficient and what you would do if it is not.
+*What this tests: reading an IHC panel as a logical problem; connecting lineage determination to treatment eligibility; applying the "insufficient material" failure mode to a real diagnostic scenario.*
+
+**Challenge**
+
+9. *[Challenge — very hard]* The "Still Puzzling" section asks how heterogeneous a tumor can be before a single core biopsy is fundamentally inadequate for treatment decisions. Design a prospective clinical study that would quantify the rate at which a single core biopsy from the most accessible region of a solid tumor fails to identify the dominant driver mutation — defined as the mutation present in more than 50% of tumor cells — compared to multiregion sampling or surgical resection. Specify the tumor type, the number and locations of biopsy cores, the molecular testing approach, the reference standard, and the statistical threshold for "inadequacy." Then explain what the result would mean for clinical practice if the inadequacy rate turned out to be above 20% in the tumor type you studied — specifically, what changes in the diagnostic protocol would be justified and what changes would require additional evidence before implementation.
+*What this tests: translating the spatial heterogeneity problem into a study design; reasoning about what level of diagnostic inadequacy would justify changing standard practice.*
+
+---
 
 ## What Would Change My Mind
 
-The central claim is that imaging is probabilistic and that tissue, when correctly sampled, is the arbiter — so a negative biopsy must be weighed against pretest probability rather than accepted at face value. What would revise this? Rigorous prospective evidence that a non-invasive modality — for example, advanced quantitative MRI (diffusion and perfusion imaging) or a molecular-imaging tracer — could distinguish malignant from benign tissue with a positive and negative predictive value high enough to *replace* biopsy for a defined lesion type, validated against pathology as the reference standard [*Advances in Diffusion and Perfusion MRI for Quantitative Cancer Imaging*, 2020; NCI, *Cancer Imaging Basics*]. If imaging could deliver tissue-equivalent certainty for some cancers, the privileged status of the needle would erode for those cancers. So far, imaging informs the probability and tissue settles it — but this is an empirical claim about current technology, not a law of nature.
+The central claim is that imaging is probabilistic and tissue, when correctly sampled, is the arbiter — so a negative biopsy must be weighed against pretest probability rather than accepted at face value. What would revise this: rigorous prospective evidence that a non-invasive modality — advanced quantitative MRI, molecular-imaging tracers, or AI-enhanced imaging — could distinguish malignant from benign tissue with positive and negative predictive values high enough to replace biopsy for a defined lesion type, validated against pathology as the reference standard. If imaging could deliver tissue-equivalent certainty for some cancers, the privileged status of the needle would erode for those cancers. So far, imaging informs the probability and tissue settles it — but this is an empirical claim about current technology, not a law of nature.
 
 ## Still Puzzling
 
-- How heterogeneous is a tumor allowed to be before a single core biopsy is fundamentally inadequate? For some cancers, the region a needle hits may not carry the mutations that drive lethality. Where is the line, and how would we know we had crossed it? [contested]
+- How heterogeneous is a tumor allowed to be before a single core biopsy is fundamentally inadequate? For some cancers, the region a needle hits may not carry the mutations that drive lethality. Where is the line, and how would we know we had crossed it? `[contested]`
 - AI tools now read mammograms, lung CTs, and digital pathology slides. When an algorithm and a human radiologist disagree, whose probability should drive the biopsy decision — and how do we validate the algorithm against a ground truth that is itself a sampled, imperfect biopsy?
-- For lesions that cannot be safely biopsied (some brain, some pancreatic, some lung), we are forced to treat on imaging probability alone. How should the threshold for treating-without-tissue be set, and who decides?
+- For lesions that cannot be safely biopsied — some brain, some pancreatic, some lung — we are forced to treat on imaging probability alone. How should the threshold for treating-without-tissue be set, and who decides?
 
 ## References
 
 - National Cancer Institute. *Cancer Imaging Basics.* https://dctd.cancer.gov/research/research-areas/imaging/basics
 - National Cancer Institute. *Tests and Procedures Used to Diagnose Cancer.* https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis
 - National Cancer Institute. *CT Scans and Cancer Fact Sheet.* https://www.cancer.gov/about-cancer/diagnosis-staging/ct-scans-fact-sheet
-- *Advances in Diffusion and Perfusion MRI for Quantitative Cancer Imaging.* 2020. https://pmc.ncbi.nlm.nih.gov/articles/PMC7747414/
-- Eisenhauer EA, et al. RECIST 1.1: New response evaluation criteria in solid tumors. *Eur J Cancer* 2009.
-- National Cancer Institute. *Research Areas: Cancer Diagnosis* (imaging, biomarkers, AI, biopsy). https://www.cancer.gov/research/areas/diagnosis
-
-## Prompts
-
-*No figures have been generated for this chapter yet.*
-*Run the Cowork enrichment pass to populate this section.*
+- Advances in Diffusion and Perfusion MRI for Quantitative Cancer Imaging. 2020. https://pmc.ncbi.nlm.nih.gov/articles/PMC7747414/
+- Eisenhauer, E. A., et al. (2009). New response evaluation criteria in solid tumours: Revised RECIST guideline (version 1.1). *European Journal of Cancer*, 45(2), 228–247.
+- National Cancer Institute. *Research Areas: Cancer Diagnosis.* https://www.cancer.gov/research/areas/diagnosis
