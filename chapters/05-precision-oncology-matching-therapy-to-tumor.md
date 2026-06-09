@@ -1,135 +1,146 @@
-# Precision Oncology: Matching Therapy to Tumor
+# Chapter 5 — Precision Oncology: Matching Therapy to Tumor
+*A Match Is a Hypothesis. The Response Is the Test.*
 
-## Learning Objectives
+A 58-year-old never-smoker is diagnosed with metastatic lung adenocarcinoma. Comprehensive genomic profiling returns a *KRAS G12C* mutation. KRAS G12C is, on paper, an actionable alteration — sotorasib and adagrasib, approved in 2021 and 2022, target precisely this mutation. The molecular tumor board calls it a match. She starts sotorasib.
 
-After working through this chapter, you should be able to:
+Her tumor shrinks for four months. Then it grows again. Repeat biopsy shows the KRAS G12C mutation is still present — but the tumor now carries new alterations in the downstream signaling pathway, and a subpopulation of cells has switched to a different growth driver entirely. The drug still binds its target. The target still drives part of the cancer. The cancer is winning.
 
-- **Explain** how a molecular biomarker functions as a *prediction* about drug response, and distinguish a biomarker that is *prognostic* (forecasts outcome regardless of treatment) from one that is *predictive* (forecasts response to a specific drug).
-- **Compare** basket, umbrella, and platform trial designs, and **identify** which design produces which kind of evidence claim (tumor-agnostic approval vs. type-specific matching).
-- **Evaluate** a "matched but didn't respond" case and **diagnose** the most likely reasons — wrong biomarker, wrong threshold, resistance, or co-occurring alterations.
-- **Critique** a tumor-agnostic approval by asking what response rate, across which cancers, with what denominator, justified the claim.
-- **Produce** a molecular-profiling-to-treatment reasoning chain for a hypothetical patient, naming the test, the actionable alteration, the matched drug, and the expected durability.
+Down the hall, a different patient with the same KRAS G12C mutation never responded at all. Same biomarker, same drug, zero shrinkage from day one.
 
-## Opening Case
+Two patients, one alteration, two different failures. The match was real in both cases. The response was not durable in one and absent in the other. This is the gap between "matched" and "responded" — and understanding that gap is the whole subject of this chapter.
 
-A 58-year-old never-smoker is diagnosed with metastatic lung adenocarcinoma. Comprehensive genomic profiling of her tumor — next-generation sequencing of several hundred cancer genes — returns a *KRAS G12C* mutation. KRAS G12C is, on paper, an actionable alteration: sotorasib and adagrasib, approved in 2021 and 2022, target precisely this mutation. The molecular tumor board calls it a match. She starts sotorasib.
+---
 
-Her tumor shrinks for four months. Then it grows again. A repeat biopsy shows the KRAS G12C mutation is still there — but now the tumor also carries new alterations in the downstream signaling pathway, and a subpopulation of cells has switched to a different growth driver entirely. The drug still binds its target. The target still drives the cancer. And yet the cancer is winning.
+For most of oncology's history, drugs were assigned by tissue type. This chemotherapy regimen for everyone with this cancer, regardless of molecular features. Some patients responded. Others didn't. The difference was attributed to "biological variability" — which is a way of saying the field didn't know why.
 
-Down the hall, a different patient with the *same* KRAS G12C mutation never responded at all. Same biomarker, same drug, no shrinkage from day one.
+**Precision oncology** is the reframing of that variability as molecular. The insight: the cancer's genetic and protein features, more than its tissue of origin, predict which drugs will work. The practice: sequence the tumor, identify a molecular feature shown in trials to predict response, and prescribe the matched drug.
 
-The match was real. The response was not durable in one patient and absent in the other. This chapter is about why a molecular match is a *hypothesis about response*, not a guarantee — and how oncology builds and tests that hypothesis.
+A clarification before going further. *Precision* does not mean the treatment is unique to one patient. Two patients with the same alteration receive the same drug. The precision is in the molecular targeting, not in individual customization. **Personalized medicine** — which accounts for the whole patient, including comorbidities, preferences, and germline genetic background — is a related but stronger claim that remains largely aspirational in routine practice (NCI, *Targeted Therapy*).
 
-## Core Concepts
+An **actionable alteration** is the unit of precision oncology: a molecular feature for which a matched therapy exists and has demonstrated benefit. Actionable features include point mutations (*EGFR* exon-19 deletion, *BRAF* V600E, *KRAS* G12C), gene fusions (*ALK*, *ROS1*, *RET*, *NTRK*), copy-number changes (*HER2* amplification), expression patterns (estrogen receptor, PD-L1), and functional signatures (microsatellite instability, tumor mutational burden). The word *actionable* is load-bearing. It does not mean present. It means present and linked, by clinical evidence, to a drug that helps. A mutation you can detect but cannot exploit is interesting biology, not an actionable alteration.
 
-### What "precision" actually means
+---
 
-For most of cancer therapy's history, drugs were assigned by tumor type: this chemotherapy for everyone with this cancer, regardless of the cancer's underlying biology. Some patients responded, others didn't, and the difference was filed under "biological variability" — a polite name for ignorance.
+The single most important distinction in this chapter — the one students most consistently collapse, and the one every clinical precision-oncology failure traces back to — is the difference between a **predictive biomarker** and a **prognostic biomarker**.
 
-**Precision oncology** is the reframing of that variability as *molecular* rather than random. The plain-language version: the cancer's genetic and protein features, more than its tissue of origin, tell you which drug will work. The formal definition: precision oncology matches a therapy to a specific, measurable molecular feature of a tumor — a feature shown, in trials, to predict response to that therapy.
+A **prognostic biomarker** tells you how the patient will fare, regardless of treatment. It forecasts the natural history of the disease. A patient with a high-grade tumor and lymphovascular invasion has a worse prognosis than one without — that is prognostic information. It does not tell you which therapy to use.
 
-Note what *precision* does **not** mean. It does not mean the treatment is unique to one person. Two patients with the same alteration usually get the same drug. The "precision" is in the molecular targeting, not in individual customization (that is **personalized medicine**, a related but stronger claim that accounts for the whole person — comorbidities, preferences, genetic background — and remains largely aspirational in routine practice) [NCI Targeted Therapy].
+A **predictive biomarker** tells you whether a specific therapy will work in this patient. *EGFR* exon-19 deletion predicts response to osimertinib; it does not predict a better outcome across all treatments. *BRCA1/2* germline mutation predicts response to PARP inhibitors through synthetic lethality — the drug is lethal only in cells that have already lost one DNA repair pathway, so the homologous recombination deficiency that the mutation creates is the target (NCI, *Targeted Therapy*). The same *BRCA1/2* mutation is also prognostic for worse outcome in some settings. That is a different fact.
 
-### Actionable alteration
+Precision oncology runs on predictive biomarkers. A feature can be both prognostic and predictive — *KRAS* mutation is a negative prognostic factor in colorectal cancer and, until recently, was considered non-actionable because no drug could block it. Conflating the two biomarker types produces a specific clinical error: treating a marker of *aggressive biology* as if it were a *drug target*. The feature predicts bad outcomes not because it drives a pathway you can block, but because it marks a tumor type that is inherently aggressive. Treating it does nothing. This is not a theoretical mistake; it drove years of failed KRAS clinical programs before G12C-specific covalent inhibitors showed that one specific KRAS variant was indeed actionable.
 
-An **actionable alteration** is a molecular feature for which a matched therapy exists and has demonstrated benefit. These come in several types: point mutations (*EGFR*, *BRAF* V600E, *KRAS* G12C), gene fusions (*ALK*, *ROS1*, *RET*, *NTRK*), copy-number changes (*HER2* amplification), expression patterns (estrogen receptor, PD-L1), and functional signatures (microsatellite instability, tumor mutational burden) [cba-32].
+<!-- → [DIAGRAM: predictive versus prognostic biomarker — four-panel grid with biomarker-positive and biomarker-negative patients on the x-axis, treated and untreated on the y-axis; prognostic marker shows both treated groups worse than untreated, with parallel survival curves regardless of treatment; predictive marker shows treatment benefit diverging only in the biomarker-positive group; the divergence between the two graphs is labeled "the distinction that drives everything"] -->
 
-The word *actionable* is doing quiet, load-bearing work. It does not mean "present." It means "present **and** linked, by evidence, to a drug that helps." A mutation you can detect but cannot exploit is not actionable, however dramatic it looks on the report.
+---
 
-### Predictive vs. prognostic — the distinction that drives everything
+The most evolved expression of predictive-biomarker logic is **tumor-agnostic therapy**: a drug approved to treat any cancer that carries a specific molecular feature, regardless of where in the body the cancer originated.
 
-This is the single most important distinction in the chapter, and it is the one students most often collapse.
+The first tumor-agnostic approval was pembrolizumab for **microsatellite-instability-high (MSI-H)** tumors in 2017 — approved based on response rates of roughly 30–50% in MSI-H cancers spanning colorectal, endometrial, gastric, biliary, and other sites (NCI, *Immunotherapy*). The claim: a tumor's mismatch-repair deficiency, not its tissue origin, predicts response to PD-1 blockade. Then larotrectinib and entrectinib for *NTRK* fusion-positive tumors (2018–2019); pembrolizumab for tumor-mutational-burden-high tumors at ≥10 mutations per megabase (2020); dabrafenib plus trametinib for *BRAF* V600E solid tumors (2022).
 
-- A **prognostic biomarker** forecasts the patient's outcome *regardless of treatment*. It tells you how aggressive the cancer is.
-- A **predictive biomarker** forecasts response *to a specific therapy*. It tells you whether *this drug* will work.
+Each approval embeds the same claim: the biology is what matters; the tissue is incidental.
 
-Precision oncology runs on predictive biomarkers. *EGFR* exon-19 deletion predicts response to osimertinib; *BRCA1/2* mutation predicts response to PARP inhibitors through synthetic lethality (the drug is lethal only in cells already missing a DNA-repair pathway) [cba-32]. A feature can be both, but conflating them produces exactly the failure mode of treating a marker of *bad biology* as if it were a *drug target*.
+That claim is powerful and not without limits. The denominator behind a tumor-agnostic approval is typically a patchwork of small cohorts across many cancer types, assembled from basket trials and analyzed together. The pooled response rate looks like one number, but it may hide tissue-specific variation — responses that are strong in some histologies and weak in others, aggregated into an average `[verify — per-tissue response rates in NTRK and MSI-H approvals]`. "Agnostic" in the regulatory label does not mean uniform in the biology.
 
-<!-- → [DIAGRAM: predictive vs. prognostic biomarker — two-by-two showing biomarker status × treatment, with response curves diverging only for predictive markers] -->
+The *BRAF* V600E case is the clearest illustration of why tissue matters even within a tumor-agnostic framework. In melanoma, BRAF V600E predicts a strong, durable response to BRAF plus MEK inhibition — response rates above 60%. In colorectal cancer, the same mutation responds poorly to single-agent BRAF inhibition because feedback reactivation of EGFR restores the signaling the BRAF inhibitor blocked, requiring the addition of an anti-EGFR antibody to achieve even modest benefit. Same mutation, same approved drug class, profoundly different biology — because colorectal cancers have abundant EGFR signaling that melanomas do not, and that signaling provides a bypass route around BRAF blockade. The tissue that was supposed to be incidental turns out to matter after all, even for a mutation the label calls agnostic.
 
-### Tumor-agnostic therapy
+---
 
-The most evolved form of precision oncology is **tumor-agnostic therapy**: a drug approved across cancer types based on a molecular feature, *regardless of tissue of origin*. The first was pembrolizumab for **microsatellite-instability-high (MSI-H)** tumors in 2017 — approved on response rates of roughly 30–50% in MSI-H cancers spanning colorectal, endometrial, gastric, and biliary sites [cba-32]. Then larotrectinib and entrectinib for *NTRK* fusion-positive tumors (2018–2019); pembrolizumab for tumor-mutational-burden-high (≥10 mutations/megabase) tumors (2020); dabrafenib + trametinib for *BRAF* V600E solid tumors (2022) [cba-32]. The claim embedded in each approval: *the biology is what matters; the tissue is incidental.*
+Precision oncology needed new trial designs because the molecular subgroups it works with are small and scattered across many cancer types. Conventional trials enroll patients by cancer type and compare one regimen to another. Molecular subgroups — patients with a specific fusion, a specific mutation — may be 1–5% of any given cancer type. Enrolling enough of them in a single-tumor trial would take decades.
 
-That claim is powerful and contestable. The denominator behind a tumor-agnostic approval is a patchwork of small cohorts across many cancers — the response rate that looks like one number may hide tissue-specific variation [verify].
+**Basket trials** enroll patients by molecular alteration across many tumor types. A basket trial for *NTRK* fusions might enroll lung adenocarcinoma, thyroid cancer, sarcoma, and colon cancer — any tumor with the fusion, from any origin. The design that produces tumor-agnostic claims; larotrectinib and entrectinib reached approval through basket programs that enrolled patients regardless of histology.
 
-### Trial designs encode evidence claims
+**Umbrella trials** work in the opposite direction: they enroll one cancer type and subdivide patients into arms by molecular feature. Lung-MAP is the classic example — a non-small-cell lung cancer trial with multiple sub-studies, each testing a different drug in a different molecular subgroup. The umbrella design answers: does this matching work *within this cancer type*? It cannot make cross-tissue claims the way a basket can.
 
-Precision oncology needed new trial machinery, because the molecular subgroups are small and scattered across cancer types. The design you choose determines the *kind* of claim you can make. **Basket trials** enroll patients by *molecular alteration* across many tumor types — the design that produces tumor-agnostic claims; larotrectinib and entrectinib reached approval this way [cba-32]. **Umbrella trials** enroll one *cancer type* and assign patients to arms by molecular feature — Lung-MAP in non-small-cell lung cancer is the classic example [cba-32]. **Platform trials** maintain permanent infrastructure and add or drop arms over time (I-SPY 2 in breast cancer) [cba-32]. Reading a precision-oncology result therefore requires knowing which design produced it: a basket result speaks to a biomarker across tissues, an umbrella result to matching within one tissue.
+**Platform trials** maintain permanent infrastructure and add or drop treatment arms over time as evidence accumulates. I-SPY 2 in breast cancer tests experimental agents in molecularly defined subgroups, graduating agents showing promise to confirmatory trials and dropping those that do not. The platform design generates evidence efficiently across time.
 
-<!-- → [DIAGRAM: basket vs. umbrella vs. platform trial designs — basket enrolls one alteration across many tumor types; umbrella enrolls one tumor type split by alteration; platform adds/drops arms over time] -->
+Reading a precision-oncology result requires knowing which design produced it. A basket result is evidence for a biomarker across tissues — it supports a tumor-agnostic claim. An umbrella result is evidence for matching within a defined cancer type. Citing a basket result to justify treatment in a tumor type not represented in the basket is an extrapolation, not an evidence application.
 
-## Worked Example
+<!-- → [DIAGRAM: basket versus umbrella versus platform trial designs — basket: three different tumor types enrolling to a single biomarker-defined arm, arrow pointing to tumor-agnostic approval; umbrella: one tumor type branching into three biomarker-defined arms, arrow pointing to tissue-specific matching; platform: a timeline showing arms added and dropped over time with a continuous infrastructure spine; each design labeled with its evidence claim] -->
 
-**Situation.** Return to the opening patient with KRAS G12C lung adenocarcinoma. We want to reason about *why a real match failed*, and what that teaches about reading molecular reports.
+---
 
-**The reasoning — including a dead end.**
+Return to the first opening patient — KRAS G12C, sotorasib, four months of response, then progression. The first instinct when a matched treatment fails is to question the assay: perhaps the sequencing called a mutation that wasn't really there. This is always worth checking. Analytic validity — whether the test is reliably calling what it claims to call — is the foundation every precision decision rests on. But the repeat biopsy confirmed KRAS G12C was present at baseline and at progression. The test was right. The match was real. So the assay-error explanation fails here.
 
-First instinct (the dead end): "The biomarker must have been wrong — maybe the sequencing called a mutation that wasn't really there, or the test was low quality." This is worth checking, and it is the right reflex in general: a precision decision is only as good as the assay's analytic validity. But the repeat biopsy confirms KRAS G12C is present, and it was present at baseline. The test was right. The match was real. So a bad-assay explanation fails here, and clinging to it would send us hunting for a measurement error that doesn't exist.
+The productive reframing separates the *target* from the *tumor's dependence on that target over time*. At baseline the cancer was driven by KRAS G12C signaling, sotorasib blocked it, and the tumor shrank — the hypothesis "this tumor depends on KRAS G12C" was, for four months, confirmed by the response itself. Resistance emerged not because the drug stopped binding, but because the tumor evolved. Treatment is selection pressure. It does not act on a static tumor; it acts on a population under selection, and it selects for the cells capable of routing around the blockade. New downstream mutations restored the MAPK signal; a subclone adopted an entirely different driver. The drug still engaged its target. The cancer found another way to grow.
 
-Second pass (the productive path): distinguish the *target* from the *tumor's dependence on that target over time*. At baseline the cancer was driven by KRAS G12C signaling, sotorasib blocked it, and the tumor shrank — the hypothesis "this tumor depends on KRAS G12C" was, for four months, confirmed by the response itself. Resistance then emerged not because the drug stopped binding, but because the tumor *evolved*: new downstream mutations restored the signal, and a subclone adopted an entirely different driver [cba-32]. Treatment is selection pressure. It does not act on a static tumor; it acts on an evolving population, and it selects for the cells that can route around the blockade.
+The second patient — same mutation, never responded — is a different story. The most likely explanation is a **co-occurring alteration** that made the cancer independent of KRAS G12C signaling from the start. If a tumor also carries a loss-of-function mutation in a tumor-suppressor pathway, or has activated a parallel oncogenic pathway, blocking KRAS G12C changes nothing — the proliferative signal arrives through a channel the drug doesn't touch. The biomarker was present; the dependency was not. Target presence and target dependence are different properties of the tumor.
 
-Now the **second patient**, who never responded at all. Same mutation, zero shrinkage. The likely explanations differ: a **co-occurring alteration** (for instance a loss in a tumor-suppressor pathway) may have made the cancer independent of KRAS signaling from the start, so blocking KRAS changed nothing. The biomarker was present but not, in that tumor, *the* dependency.
+KRAS G12C inhibitors are, by the field's own assessment, meaningful but not transformative — response rates in the 35–40% range for lung adenocarcinoma, well below the 60–80% response rates of EGFR or ALK inhibitors in their respective populations, and with resistance that develops reliably within months rather than years (NCI, *Targeted Therapy*). The contrast with those other targets is informative: EGFR-mutant and ALK-rearranged lung cancers are highly dependent on a single oncogenic driver, with few escape routes available. KRAS-mutant cancers are biologically more heterogeneous — co-occurring alterations are common, the downstream signaling more plastic, the escape options more numerous.
 
-**Resolution.** Two patients, one biomarker, three outcomes (transient response, no response, and — in some KRAS G12C patients — durable benefit). The match identified a *candidate dependency*. Whether the tumor actually depended on it, and kept depending on it, was an empirical question the drug itself answered. KRAS G12C inhibitors are, by the field's own assessment, "meaningful but not dramatic," with response rates well below the EGFR or ALK inhibitors and resistance that develops reliably [cba-32].
+---
 
-**The lesson.** A molecular match is a *prediction*, scored by the response, not a property you can read off the report. "Matched" and "responded" are different measurements, and the gap between them is where precision oncology earns or loses its claims.
+The pattern of success and failure across precision oncology is not random. It follows from the biology.
 
-**The limit.** This reasoning explains *that* responses vary and *some* mechanisms of resistance. It does not let us predict, before treatment, which KRAS G12C patient will get four months, which will get none, and which will get durable control. Pre-treatment prediction of durability remains, across most targeted therapies, unsolved [contested — see pantry flag].
+**Single-driver, oncogene-addicted cancers** have responded most dramatically. Chronic myeloid leukemia with BCR-ABL: imatinib produced response rates above 90% and changed a disease with median survival measured in years to one managed as a chronic condition. EGFR-mutant lung cancer: response rates above 60%, progression-free survivals of one to two years, with sequential generations of inhibitors extending benefit further. HER2-positive breast cancer: trastuzumab transformed a subtype with among the worst prognosis to one of the most treatable. *NTRK* fusion-positive tumors: larotrectinib response rates above 75% across all histologies, with responses so durable that some are described as potentially curative. In these settings, the cancer has concentrated its survival dependency on one molecular driver, the drug blocks that driver, and the cancer has limited escape options.
 
-## Common Misconceptions
+**Multi-driver, microenvironment-dominated cancers** have resisted. Pancreatic adenocarcinoma has been comprehensively sequenced; the dominant drivers are KRAS, TP53, SMAD4, and CDKN2A — none of them cleanly druggable with current small molecules, and the desmoplastic microenvironment blocks delivery of what drugs do reach the tumor. Glioblastoma has many alterations and few that drive a single dominant dependency. Triple-negative breast cancer has high mutation burden but heterogeneous drivers and limited targeted options. These cancers resist not because precision oncology doesn't apply, but because they lack the concentrated, druggable single dependency that makes the approach work.
 
-**"If the tumor carries the target, the matched drug will work."** Plausible — it is the whole promise of precision oncology. It fails because target *presence* is not the same as target *dependence*, and dependence can be absent from the start (co-occurring alterations) or lost over time (resistance evolution). The opening case is the counterexample: target present, target still driving, drug still binding, tumor still winning.
+The failure pattern is as informative as the success pattern. Precision oncology does not work by measuring more molecular features; it works when the features measured correspond to a genuine, durable dependency that the matched drug reliably disrupts.
 
-**"Tumor shrinkage means the treatment worked."** Plausible, because shrinkage is visible and feels like benefit. It fails because the endpoint that matters — does the patient live longer or better — is not the same measurement as response rate. A drug can shrink tumors (high response rate) without extending survival, and a drug with modest shrinkage can extend life. The opening patient's tumor shrank for four months; whether that translated to meaningful benefit is a separate, harder question requiring survival data [cba-32; pantry notes, "Endpoints matter"].
+---
 
-**"A tumor-agnostic approval means the drug works the same in every cancer."** Plausible, since the approval is, by name, agnostic to tissue. It fails because the approval rests on a *pooled* response rate across heterogeneous small cohorts; the true rate can vary by tissue, and rare tissues may be underrepresented or absent from the trial entirely [verify]. Agnostic in the *label* does not mean uniform in the *biology*.
+Two patients with the same alteration. Three possible outcomes across the whole population of KRAS G12C patients: durable benefit, transient benefit followed by resistance, and no benefit at all from day one. The match identified a candidate dependency. Whether each patient's tumor actually depended on it — and kept depending on it — was an empirical question that the drug answered.
 
-**"Precision oncology has solved cancer treatment."** It transformed cancers driven by a single dominant oncogene — chronic myeloid leukemia (BCR-ABL, imatinib), EGFR-mutant lung cancer, HER2-positive breast cancer, melanoma [cba-32]. It has barely touched pancreatic cancer and glioblastoma, where most patients have no actionable alteration and the few targeted options help small subsets [cba-32]. The failure pattern is informative: single-driver cancers yield; multi-driver, microenvironment-dominated cancers resist.
+This is why "matched" and "responded" are different measurements. The report says what alteration is present. It does not say whether the tumor depends on it. It does not say whether that dependency will persist under selective pressure. The match is a prediction, scored by the response, not a property readable off the sequencing panel.
+
+The field is working toward pre-treatment tools that would close this gap: patient-derived organoid testing, AI-integrated multi-omic models that account for co-occurring alterations and expression context, functional assays of pathway dependence. None has yet reached the positive predictive value that would make the prediction reliable rather than probabilistic (NCI, *Research Areas*). Until they do, the match remains the hypothesis, and the response remains the test.
+
+---
 
 ## Exercises
 
-1. **(Comprehension.)** In one sentence each, define *predictive biomarker*, *prognostic biomarker*, and *actionable alteration*. Then state which of the three is the load-bearing concept for tumor-agnostic approvals, and why.
+**Warm-up**
 
-2. **(Apply.)** A patient with metastatic colorectal cancer has a *BRAF* V600E mutation. In melanoma, BRAF V600E predicts strong response to BRAF + MEK inhibitors; in colorectal cancer, single-agent BRAF inhibition works poorly and the combination requires adding an anti-EGFR antibody [cba-32]. Explain, in terms of *target dependence* and *co-occurring signaling*, why the same mutation behaves differently across tissues — and what this does to the "tissue is incidental" claim of tumor-agnostic therapy.
+1. *[Recall — moderate]* Define predictive biomarker, prognostic biomarker, and actionable alteration in one sentence each. Then explain why conflating the first two produces a specific clinical error — give a concrete example of a feature that is prognostic but not (or not yet) predictive for a specific drug, and state what happens if you treat it as predictive.
+*What this tests: whether you can distinguish the concepts mechanistically, not just definitionally — the example forces you to apply the distinction to a real case.*
 
-3. **(Apply / Analyze.)** You are designing a trial to test a new drug against an *NTRK* fusion present in fewer than 1% of tumors across all cancer types. Choose between a basket and an umbrella design, justify the choice, and state the *specific evidence claim* your chosen design can and cannot support. (Recall: larotrectinib and entrectinib reached tumor-agnostic approval through basket designs [cba-32].)
+2. *[Recall — moderate]* Name four tumor-agnostic approvals with their molecular feature, approximate pooled response rate, and the year of approval. Then explain in two sentences why a pooled response rate across many cancer types is a necessary but not sufficient description of what the drug actually does.
+*What this tests: knowing the landmark approvals and understanding the epidemiological limitation of pooled rates — what the single number hides.*
 
-4. **(Produce.)** Write a one-page molecular-profiling-to-treatment reasoning chain for a hypothetical never-smoker with metastatic lung adenocarcinoma. Name (a) the test you would order, (b) at least three alterations you would hope to find and the matched drug for each, (c) the expected response durability where known, and (d) one point in the chain where a "matched but didn't respond" outcome could arise. Cite the alteration-drug pairings to the chapter or to a named source; mark anything you are unsure of `[verify]`.
+3. *[Recall — moderate]* Distinguish basket, umbrella, and platform trial designs by what each enrolls and what evidence claim each can and cannot support. Your answer should make clear why a basket result cannot substitute for an umbrella result when a clinician wants to know whether a matching strategy works specifically in one cancer type.
+*What this tests: trial-design literacy — matching the design to the evidence claim rather than treating all precision-oncology results as equivalent.*
 
-5. **(Evaluate / Produce.)** Find the FDA label or pivotal-trial publication for one tumor-agnostic approval (e.g., larotrectinib, or pembrolizumab for MSI-H). Report the overall response rate, the number of distinct cancer types in the cohort, and the smallest per-tissue subgroup. Write two sentences on whether the "agnostic" claim is well supported by that denominator.
+**Application**
+
+4. *[Apply — moderate-hard]* A patient with metastatic colorectal cancer has a BRAF V600E mutation. Their oncologist read that BRAF V600E responds to BRAF plus MEK inhibition in melanoma and proposes the same regimen. Explain, using the concept of bypass signaling and tissue-specific co-occurring features, why the melanoma response rate does not predict the colorectal cancer response rate — and what the correct treatment approach for BRAF V600E colorectal cancer is and why it differs.
+*What this tests: applying the tissue-specificity problem within a tumor-agnostic framework — why "same mutation" does not mean "same response" across tissues.*
+
+5. *[Apply — moderate-hard]* A patient with *NTRK* fusion-positive salivary gland cancer — a rare histology not represented in the larotrectinib basket trial — is offered larotrectinib based on the tumor-agnostic approval. Evaluate the strength of the evidence supporting that treatment decision: what does the basket trial establish, what is the extrapolation involved, and what information about *NTRK* biology would support or undermine the extrapolation?
+*What this tests: applying basket-trial evidence to a histology not in the trial — understanding the difference between evidence application and evidence extrapolation.*
+
+6. *[Apply — hard]* Design a molecular-profiling-to-treatment reasoning chain for a hypothetical never-smoker with metastatic lung adenocarcinoma. Name (a) the sequencing test you would order; (b) three alterations you would hope to find and the matched drug for each; (c) the expected response rate and durability where known; (d) one specific point in the chain where a "matched but didn't respond" outcome could arise and which mechanism you would suspect first. Mark anything you are uncertain about with `[verify]`.
+*What this tests: end-to-end application of the precision-oncology framework to a specific clinical scenario; the [verify] requirement enforces intellectual honesty about the limits of your knowledge.*
+
+**Synthesis**
+
+7. *[Synthesis — hard]* The KRAS G12C case and the EGFR exon-19 deletion case both represent "matched therapies." Compare them across four dimensions: (1) the response rate in the indicated population; (2) the typical durability of response; (3) the most common resistance mechanisms; (4) what these differences reveal about the relative degree of oncogene addiction in each cancer. Your comparison should end with a one-sentence claim about what distinguishes a "good" actionable alteration from a merely "present" one.
+*What this tests: comparative analysis of two actionable alterations using the oncogene-addiction concept; moving from empirical observations to a mechanistic generalization.*
+
+8. *[Synthesis — hard]* Pembrolizumab was first approved for MSI-H tumors in 2017 and later for TMB-high tumors in 2020. Both are immunotherapy biomarkers, but the evidence base and the per-tissue response rates are different. Compare these two tumor-agnostic approvals across three dimensions: (1) the biological mechanism by which each biomarker predicts immunotherapy response; (2) the strength of the evidence supporting each approval (trial design, pooled response rate, per-tissue variation); (3) what the per-tissue variation tells you about whether "agnostic" is a biologically accurate description for each. Conclude with a recommendation about which approval you would rely on more confidently in a histology not represented in the pivotal trials, and why.
+*What this tests: mechanistic comparison of two immunotherapy biomarkers; applying the evidence-quality argument to a clinical decision under uncertainty.*
+
+**Challenge**
+
+9. *[Challenge — very hard]* The "Still Puzzling" section asks why some patients with a textbook actionable alteration never respond at all — when the target is present and the drug demonstrably binds it — and why pre-treatment prediction of durability remains unsolved. Design a translational research program that would, for one specific alteration-drug pair of your choice, attempt to identify the molecular features in pre-treatment tumor biopsies that predict: (a) primary resistance (no response); (b) secondary resistance (initial response then progression); (c) durable benefit. Specify the cohort you would enroll, the multi-omic data types you would collect (genomic, transcriptomic, proteomic, spatial), the computational approach to identifying predictive features, and the validation strategy. Then explain what the program would need to demonstrate to justify using the resulting classifier to withhold the matched drug from a patient whose tumor carries the actionable alteration.
+*What this tests: translating a fundamental precision-oncology problem into a research design; reasoning about the ethical and evidentiary threshold for using a predictive classifier to override a molecular match.*
+
+---
 
 ## What Would Change My Mind
 
-The central claim of this chapter is that a molecular match is a *hypothesis about response*, validated only by the response itself — that "matched" and "responded" are distinct measurements separated by an irreducible gap. What would revise this claim is a *pre-treatment* assay — likely multi-omic, integrating the alteration with co-occurring mutations, expression state, and microenvironment — that predicts response *and durability* for a targeted drug with accuracy high enough to act on (say, a positive predictive value above 80% for durable response, prospectively validated). If such an assay existed and held up across cancer types, the gap between "matched" and "responded" would largely close, and the match would become close to a guarantee rather than a hypothesis. Patient-derived organoid testing and AI-integrated multi-omic models are the current candidates [cba-32]; none has yet met that bar.
+The central claim of this chapter is that a molecular match is a hypothesis about response, validated only by the response itself — that "matched" and "responded" are distinct measurements separated by an irreducible gap. What would revise this: a pre-treatment assay — likely multi-omic, integrating the alteration with co-occurring mutations, expression state, and microenvironment — that predicts response and durability for a targeted drug with accuracy high enough to act on (a positive predictive value above 80% for durable response, prospectively validated). If such an assay existed and held up across cancer types, the gap between "matched" and "responded" would largely close, and the match would become close to a guarantee rather than a hypothesis. Patient-derived organoid testing and AI-integrated multi-omic models are the current candidates; none has yet met that bar (NCI, *Research Areas*).
 
 ## Still Puzzling
 
-- Why do some patients with a textbook actionable alteration never respond at all, when the target is present and the drug demonstrably binds it? Co-occurring alterations explain some cases, but not all [contested — see pantry flag].
-- What is the right *denominator* for a tumor-agnostic approval? Pooling across tissues maximizes statistical power but assumes a uniformity the biology may not honor. How small can a per-tissue cohort be before "agnostic" becomes a statistical artifact?
-- Can resistance be *predicted and pre-empted* — combinations chosen at baseline to block the escape routes — or is treatment-driven evolution fast enough that we will always be one step behind?
-- Why have cancers like pancreatic adenocarcinoma resisted precision approaches despite exhaustive molecular characterization? Is the limit the absence of druggable drivers, or our inability to drug the drivers (KRAS, MYC, p53) that are present?
+- Why do some patients with a textbook actionable alteration never respond at all, when the target is present and the drug demonstrably binds it? Co-occurring alterations explain some cases, but not all `[contested — see pantry flag]`.
+- What is the right denominator for a tumor-agnostic approval? Pooling across tissues maximizes statistical power but assumes a uniformity the biology may not honor. How small can a per-tissue cohort be before "agnostic" becomes a statistical artifact?
+- Can resistance be predicted and pre-empted — combinations chosen at baseline to block the escape routes — or is treatment-driven evolution fast enough that we will always be one step behind?
+- Why have cancers like pancreatic adenocarcinoma resisted precision approaches despite exhaustive molecular characterization? Is the limit the absence of druggable drivers, or our inability to drug the drivers that are present?
 
 ## References
 
 - National Cancer Institute. *Targeted Therapy to Treat Cancer.* https://www.cancer.gov/about-cancer/treatment/types/targeted-therapies
 - National Cancer Institute. *Immunotherapy to Treat Cancer.* https://www.cancer.gov/about-cancer/treatment/types/immunotherapy
 - National Cancer Institute. *Tests and Procedures Used to Diagnose Cancer.* https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis
-- U.S. Food and Drug Administration, Oncology Center of Excellence. *Project Optimus* (dose optimization in oncology drug development). https://www.fda.gov/about-fda/oncology-center-excellence/project-optimus
-- Source chapter (cba-32), *Precision Oncology: Matching Therapy to Tumor*, for biomarker-drug pairings, tumor-agnostic approval history, trial frameworks, and the success/failure pattern across cancer types.
-- Druker BJ. Development of imatinib (Gleevec) against BCR-ABL in chronic myeloid leukemia — the founding case of targeted therapy. (See chapter source for context.)
-- Trials referenced for trial-design frameworks: Lung-MAP (umbrella, NSCLC); I-SPY 2 (platform, breast); basket designs underlying larotrectinib/entrectinib approvals [verify specific citations against pivotal publications].
-
-## Prompts
-
-<!-- This section is populated automatically by the Cowork enrichment
-     pass. Each D3 figure generated in this chapter gets an entry here:
-     the figure number, a short title, and a ready-to-paste prompt
-     that produces a close approximation of that figure.
-
-     Prerequisites: paste CLAUDE.md and DESIGN.md from the brutalist/
-     folder before each prompt, or load them into your Claude project
-     context once and reference them by name.
--->
-
-*No figures have been generated for this chapter yet.*
+- National Cancer Institute. *Research Areas: Cancer Diagnosis.* https://www.cancer.gov/research/areas/diagnosis
+- Eisenhauer, E. A., et al. (2009). New response evaluation criteria in solid tumours: Revised RECIST guideline (version 1.1). *European Journal of Cancer*, 45(2), 228–247.
