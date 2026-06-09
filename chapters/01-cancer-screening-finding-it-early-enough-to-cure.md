@@ -1,124 +1,122 @@
-# Cancer Screening: Finding It Early Enough to Cure
+# Chapter 1 — Cancer Screening: Finding It Early Enough to Cure
 
-## Learning Objectives
+A 58-year-old man with no symptoms reads that a new blood test can detect 50 cancers from a single tube of blood. He pays out of pocket and the test comes back positive, with a predicted tissue of origin of pancreas or biliary system. He is terrified. Over the next six weeks he undergoes a contrast CT, an MRI, an endoscopic ultrasound with fine-needle aspiration, and a PET scan. The pancreas is normal. The aspiration nicks a small vessel and he is admitted overnight for observation. Three months and several thousand dollars later, the working conclusion is that the test was a false positive — or possibly that something is there that nobody can find.
 
-After working through this chapter, you should be able to:
+His physician is now in an uncomfortable position. The test reported a cancer signal, but every test that can actually see tissue says otherwise. Was the blood test wrong? Is there a tumor too small to image? Should they keep looking, or stop?
 
-- **Distinguish** screening from diagnosis, and explain why a screening test is evaluated at the population level rather than the individual level.
-- **Calculate** the positive predictive value (PPV) of a screening test from its sensitivity, specificity, and the prevalence of disease in the screened population, and explain why prevalence governs PPV.
-- **Diagnose** lead-time bias, length-time bias, and overdiagnosis in a described screening scenario, and explain why each can make a screening program look more effective than it is.
-- **Apply** the Wilson and Jungner criteria to evaluate whether a proposed screening program is justified.
-- **Judge** when reported survival statistics are evidence of benefit and when they are statistical artifacts, using disease-specific mortality as the corrective.
+The trouble is that the man was never told the number that mattered. The test's specificity sounds excellent. But a positive result in a healthy, low-risk person carries far less weight than the marketing implied — and nobody computed how much less before he was sent down a cascade of invasive follow-up. This chapter is about that number, and about the several ways early detection can fool us into thinking we are saving lives when we are mostly producing alarm.
 
-## Opening Case
+---
 
-A 58-year-old man with no symptoms reads that a new blood test can "detect 50 cancers from a single tube of blood." He pays out of pocket and the test comes back positive, with a predicted tissue of origin of "pancreas/biliary." He is terrified. Over the next six weeks he undergoes a contrast CT, an MRI, an endoscopic ultrasound with fine-needle aspiration, and a PET scan. The pancreas is normal. The aspiration nicks a small vessel and he is admitted overnight for observation. Three months and several thousand dollars later, the working conclusion is that the test was a false positive — or possibly that something is there that nobody can find.
+## Screening is a population test, not a diagnosis
 
-His physician is now in an uncomfortable position. The test reported "cancer signal detected," but every test that can actually *see* tissue says otherwise. Was the blood test wrong? Is there an occult tumor too small to image? Should they keep looking, or stop? The patient asks the obvious question: "If the test is so good, why can't anyone confirm it?"
+A **screening test** is applied to people without symptoms, drawn from a defined risk group, to find disease earlier than it would otherwise appear. This is categorically different from a **diagnostic test**, which is applied to someone in whom disease is already suspected. The distinction is not pedantic. Because most screened people do not have the disease, the test must be judged by what happens across the whole population — deaths prevented, false alarms generated, healthy people harmed by follow-up — not by whether it found a cancer in one person.
 
-The trouble is that the man was never told the number that mattered. The test's specificity sounds excellent. But a positive result in a healthy, low-risk person carries far less weight than the marketing implied — and nobody computed *how much* less before he was sent down a cascade of invasive follow-up. This chapter is about that number, and about the several ways early detection can fool us into thinking we are saving lives when we are mostly producing alarm.
+When a test meets a person, four outcomes are possible. The person has the disease and the test flags it (**true positive**), or has it and the test misses it (**false negative**), or lacks it and the test correctly clears them (**true negative**), or lacks it and the test incorrectly flags them (**false positive**). The false positive is the person sent for six weeks of invasive workup who had nothing wrong.
 
-## Core Concepts
+Two properties describe the test itself. **Sensitivity** is the fraction of people with the disease who are correctly flagged — a sensitive test misses few cancers. **Specificity** is the fraction of people without the disease who are correctly cleared — a specific test generates few false alarms. These are properties of the test, measured once and applied everywhere.
 
-### Screening is a population test, not a diagnosis
-
-A **screening test** is applied to people *without symptoms*, drawn from a defined risk group, to find disease earlier than it would otherwise appear. This is categorically different from a **diagnostic test**, which is applied to someone in whom disease is already suspected. The distinction is not pedantic. Because most screened people do not have the disease, the test must be judged by what happens across the whole population — deaths prevented, false alarms generated, healthy people harmed by follow-up — not by whether it "found a cancer" in one person.
-
-The mathematics of this is unforgiving, and it is the central skill of the chapter. Four outcomes are possible when a test meets a person:
-
-- **True positive (TP):** test positive, disease present.
-- **False positive (FP):** test positive, disease absent. The person is told they may have cancer and worked up unnecessarily.
-- **True negative (TN):** test negative, disease absent.
-- **False negative (FN):** test negative, disease present. The person is falsely reassured.
-
-Two properties describe the test itself:
-
-- **Sensitivity** = TP / (TP + FN): of people *with* the disease, the fraction the test correctly flags. A sensitive test misses few cancers.
-- **Specificity** = TN / (TN + FP): of people *without* the disease, the fraction the test correctly clears. A specific test generates few false alarms.
-
-Sensitivity and specificity are properties of the test. But the number a worried patient actually wants is the **positive predictive value (PPV)** = TP / (TP + FP): given a positive result, the probability that disease is truly present. And PPV is *not* a property of the test alone — it depends on **prevalence**, the fraction of the screened population that actually has the disease.
+The number a worried patient actually wants is the **positive predictive value (PPV)**: given a positive result, the probability that disease is truly present. PPV is not a property of the test. It depends on **prevalence** — the fraction of the screened population that actually has the disease. This is the fact that makes screening mathematics unintuitive and the fact that the opening-case patient was never given.
 
 <!-- → [CHART: 2x2 confusion matrix — TP/FP/FN/TN cells with sensitivity, specificity, and PPV labeled on the margins] -->
 
-### Why prevalence governs PPV
+---
 
-This is where intuition fails most students, so we will compute it explicitly in the Worked Example. The key fact: when prevalence is low — as it is for almost any single cancer in an asymptomatic population — even a very specific test produces *mostly false positives among its positives*. The false positives are drawn from the enormous pool of healthy people; the true positives are drawn from the tiny pool of sick people. Bayes' theorem applied to a population makes the result inevitable [NCI, *Cancer Screening Tests*]. The opening case is exactly this: a low-prevalence individual, a positive result, and a PPV nobody bothered to estimate.
+## Why prevalence governs PPV
 
-### The biases that flatter screening
+Compute it explicitly to see why prevalence dominates.
 
-Three artifacts can make screening look effective even when it changes nothing about when people die.
+A blood screen has sensitivity 90% and specificity 99% — numbers that sound superb. Apply it first to an asymptomatic general-population cohort where prevalence is 0.5%, then to a high-risk cohort where prevalence is 10%.
 
-**Lead-time bias.** Screening, by definition, moves the diagnosis date earlier. If a cancer is found at age 50 by screening but the patient still dies at 60, "survival from diagnosis" is 10 years. If the same cancer were found by symptoms at 55 with death at 60, survival is 5 years. The screening patient *appears* to survive twice as long — but died at the identical age. Earlier diagnosis inflates measured survival even when treatment helps not at all [verify — standard epidemiology; described in source chapter].
+**Low-prevalence population — 100,000 people, 0.5% with disease.**
 
-**Length-time bias.** Screening catches cancers during their detectable preclinical phase. Slow-growing tumors spend longer in that phase, so they are over-represented among screen-detected cancers; fast, lethal tumors tend to surface as symptoms *between* screening rounds. Screen-detected cancers are therefore, on average, biologically more indolent — they would have done better regardless.
+Diseased: 500 people. The test correctly flags 90% of them: 450 true positives, 50 false negatives.
 
-**Overdiagnosis.** The most consequential. Screening can detect cancers that would never have caused symptoms in the person's lifetime — slow tumors in older patients, indolent histologies, in-situ lesions. The patient is diagnosed, treated, and harmed, but would have lived just as long untreated. Overdiagnosis is especially severe in prostate (PSA-detected indolent disease), thyroid (papillary microcarcinomas), and some screen-detected breast disease (DCIS) [source chapter; NCI, *Cancer Screening Tests*].
+Disease-free: 99,500 people. The test incorrectly flags 1% of them: 995 false positives, 98,505 true negatives.
 
-The corrective for all three is to evaluate screening by **disease-specific mortality** in randomized trials with long follow-up — does the screened group die of this cancer less often than the unscreened group? — not by survival time from diagnosis, and not by how many cancers were found.
+PPV = true positives / (true positives + false positives) = 450 / (450 + 995) = **31%**.
 
-### Wilson and Jungner: when screening is justified
+A positive result is real only about one time in three. Nearly two-thirds of positives are false — 995 healthy people sent for follow-up to find 450 true cancers. The "99% specific" test produces a PPV of 31% because the 1% of false positives is drawn from a pool of 99,500 healthy people, far outnumbering the 500 who are sick.
 
-In 1968 a WHO report by Wilson and Jungner laid out criteria still used today [Wilson & Jungner, WHO 1968]: the disease must be important; it must have a detectable preclinical phase; effective treatment for early disease must exist; the test must be acceptable to the population; the test must perform adequately; and crucially, **the benefits must outweigh the harms**. Most accepted programs fail at least one criterion somewhere. The accepted ones are those where benefit clearly dominates harm in a *defined* population.
+**High-prevalence population — same test, 10% with disease.**
 
-## Worked Example
+Diseased: 10,000. True positives: 9,000. False negatives: 1,000.
 
-**Situation.** A single-cancer blood screen has **sensitivity 90%** and **specificity 99%** — numbers that sound superb. We apply it to two populations: (A) an asymptomatic general-population cohort where prevalence is **0.5%** (5 per 1,000), and (B) a high-risk cohort where prevalence is **10%**. What is the PPV in each?
+Disease-free: 90,000. False positives: 900. True negatives: 89,100.
 
-**First attempt (the dead end).** A natural reading: "Specificity is 99%, so only 1% of results are wrong — a positive is 99% likely to be real." This is the mistake that sent the man in the opening case into a six-week workup. It confuses specificity (a property among the *disease-free*) with PPV (a property among the *test-positive*). They are not the same number, and the gap between them is set by prevalence.
+PPV = 9,000 / (9,000 + 900) = **91%**.
 
-**Population A — build the 2×2 on 100,000 people, prevalence 0.5%.**
-
-- Diseased: 0.005 × 100,000 = **500**. TP = 0.90 × 500 = **450**; FN = 50.
-- Disease-free: **99,500**. FP = 0.01 × 99,500 = **995**; TN = 98,505.
-- PPV = TP / (TP + FP) = 450 / (450 + 995) = 450 / 1,445 = **31%**.
-
-So a positive result is *real* only about 1 time in 3. Nearly **two-thirds of positives are false** — 995 healthy people sent for follow-up to find 450 true cancers. The "99% specific" test produces a PPV of 31% because the 1% of false positives is drawn from a vast healthy pool.
-
-**Population B — same test, prevalence 10%.**
-
-- Diseased: 10,000. TP = 9,000; FN = 1,000.
-- Disease-free: 90,000. FP = 900; TN = 89,100.
-- PPV = 9,000 / (9,000 + 900) = **91%**.
-
-**Resolution.** The identical test — same sensitivity, same specificity — yields PPV 31% in the low-prevalence population and 91% in the high-prevalence one. Nothing about the test changed; only *who was tested* changed. This is why screening guidelines specify populations so narrowly (age bands, smoking pack-years, risk syndromes): targeting raises prevalence, which raises PPV, which reduces the harm-to-benefit ratio of false positives.
+The identical test — same sensitivity, same specificity — yields PPV 31% in the low-prevalence population and 91% in the high-prevalence one. Nothing about the test changed. Only who was tested changed.
 
 <!-- → [CHART: PPV as a function of prevalence at fixed sensitivity 90% / specificity 99% — curve climbing steeply from low prevalence] -->
 
-**The lesson.** PPV is not a property of the test. A test is only as trustworthy as the population it is pointed at. "99% specific" tells you almost nothing about whether *your* positive result means cancer until you know how common the cancer is in people like you.
+This is why screening guidelines specify populations so narrowly — age bands, smoking pack-years, risk syndromes. Targeting raises the prevalence in the screened group, which raises PPV, which reduces the ratio of harm to benefit. The opening-case patient was a low-risk person tested with a test designed for an elevated-risk population. No one applied the arithmetic that would have revealed how likely his positive result was to be false before he underwent invasive workup.
 
-**The limit.** PPV is necessary but not sufficient. Even a test with perfect PPV could be useless if the cancers it finds are overdiagnosed (length and overdiagnosis bias) or if finding them earlier does not change the death rate (lead-time bias). PPV tells you whether a positive is real; it does not tell you whether acting on it saves a life. That requires a randomized trial with a mortality endpoint.
+---
 
-## Common Misconceptions
+## The biases that flatter screening
 
-**"A more specific test means a positive result is almost certainly true."** This conflates specificity with PPV. As the Worked Example shows, a 99%-specific test had a PPV of 31% in a low-prevalence population, because the false positives are drawn from the large disease-free majority. This is precisely the error in the Opening Case — the man's "highly specific" result was treated as near-certain when its PPV in a low-risk person was modest at best.
+Three artifacts can make a screening program look effective even when it changes nothing about when people die.
 
-**"Earlier detection always means better outcomes."** Earlier detection guarantees *longer measured survival from diagnosis* (lead-time bias) but does not guarantee a *later death*. A program can improve five-year survival statistics dramatically while leaving the age at death unchanged. Only disease-specific mortality, ideally in a randomized trial, separates real benefit from the lead-time illusion.
+**Lead-time bias.** Screening moves the diagnosis date earlier. If cancer is found at age 50 by screening but the patient still dies at 60, survival from diagnosis is ten years. If the same cancer surfaces as symptoms at 55 with death at 60, survival is five years. The screened patient appears to survive twice as long, but died at the identical age. Earlier diagnosis inflates measured survival even when treatment changes nothing. A program can show a dramatic improvement in five-year survival statistics while leaving age at death completely unchanged.
 
-**"If we find more cancers, we're doing good."** Finding more cancers can reflect overdiagnosis — detecting indolent disease that would never have killed the patient. Counting detected cancers conflates benefit (catching lethal disease early) with harm (treating disease that needed no treatment). The man in the Opening Case illustrates the milder cousin: a "detection" that generated harm with no demonstrable disease at all.
+**Length-time bias.** Screening catches cancers during their detectable preclinical phase. Slow-growing tumors spend a long time in that phase and are therefore over-represented among screen-detected cancers. Fast, lethal tumors tend to produce symptoms between screening rounds and are therefore under-represented. Screen-detected cancers are on average more indolent than symptom-detected cancers — not because screening found them early enough to change their biology, but because the fast-moving ones were never there to be found. A screened population's tumors would have done better on average even without treatment.
 
-**"Screening and diagnosis are basically the same procedure done earlier."** Screening operates on asymptomatic people where prevalence — and therefore PPV — is low; diagnostic testing operates on people with elevated pretest probability where the same test performs far better. A test appropriate for diagnosis can be inappropriate for screening for exactly this reason.
+**Overdiagnosis.** The most consequential bias, and the hardest to see. Screening can detect cancers that would never have caused symptoms in the person's lifetime — slow tumors in older patients, indolent histologies, in-situ lesions. The patient is diagnosed, treated, and potentially harmed by treatment, but would have lived just as long without any of it. Overdiagnosis is especially severe in PSA-detected prostate cancer, thyroid cancer identified incidentally, and some screen-detected breast ductal carcinoma in situ. At the individual level, overdiagnosis is invisible: you cannot tell whether a particular patient was overdiagnosed. Only population-level studies reveal it as excess diagnoses over expected incidence.
 
-## Exercises
+The corrective for all three is to evaluate screening by **disease-specific mortality** in randomized trials with long follow-up: does the screened group die of this cancer less often than the unscreened group? Not survival time from diagnosis, not how many cancers were found — how many people died of the disease. This is the only endpoint that is immune to all three biases simultaneously.
 
-1. **(Recall/Understand.)** Define sensitivity, specificity, and PPV in one sentence each. State which of the three depends on disease prevalence and explain why.
+---
 
-2. **(Apply — produce a 2×2.)** A mammography program has sensitivity 85% and specificity 90%. In women aged 40–49, breast cancer prevalence at screening is roughly 0.4% [verify against current incidence data]. Build the full 2×2 table on 100,000 women, then compute PPV. Repeat for a 70-year-old cohort with prevalence 1.2%. Write one sentence explaining the difference in terms of who is being tested. Then state what *additional* evidence (beyond PPV) you would need before concluding the program saves lives.
+## When screening is justified
 
-3. **(Apply+.)** A new screening test reports that screen-detected patients have five-year survival of 80% versus 45% for symptom-detected patients. A colleague concludes the test "nearly doubles survival." Identify the three biases (lead-time, length-time, overdiagnosis) that could each, on their own, produce this gap with *zero* true benefit. For each bias, describe one feature of a study design that would let you rule it out.
+In 1968, a WHO report by Wilson and Jungner laid out criteria still in use today. The disease must be important and have a significant burden. It must have a detectable preclinical phase — a window during which the disease is present but asymptomatic and catchable. Effective treatment must exist for early disease; finding something earlier only matters if earlier treatment works better. The test must be acceptable to the population in terms of cost, access, and tolerability. The test must perform well enough that benefits outweigh harms. And critically: **the benefits must outweigh the harms** — harm including false positives, unnecessary procedures, overdiagnosis, and anxiety.
 
-4. **(Produce — a decision chart.)** Choose one screening program from the chapter (cervical, breast, colorectal, lung, or prostate). Draw a decision chart that takes a hypothetical patient from eligibility (age, risk factors) through a positive result to confirmatory workup, marking at each branch the rough probability of a true positive. Annotate where false positives enter and what harm they cause.
+Most proposed screening programs strain at least one criterion. The accepted ones are those where randomized trial evidence shows that benefit clearly dominates harm in a defined population: low-dose CT for lung cancer in current and former heavy smokers, cervical cytology and HPV testing, mammography with appropriate age and interval qualification, colonoscopy and stool-based tests for colorectal cancer. In each case the evidence is specific to the defined population — apply the program to a lower-risk group and the PPV falls and the harm-to-benefit ratio shifts.
 
-5. **(Evaluate.)** Apply the Wilson and Jungner criteria to prostate-specific antigen (PSA) screening. Identify which criteria it satisfies and which it strains, and explain why reasonable experts disagree about it [contested — see pantry flag].
+Prostate-specific antigen screening for prostate cancer is the sharpest example of a program that satisfies some criteria and strains others. PSA finds cancers that would not otherwise have been found. But PSA-detected prostate cancer includes a substantial fraction of tumors that would never have caused symptoms in the patient's lifetime. Major trials — the ERSPC and PLCO — produced conflicting results on mortality benefit, and clinical guidelines now emphasize shared decision-making between patient and physician rather than universal recommendation. Reasonable experts disagree, and the disagreement tracks directly to differing estimates of overdiagnosis.
 
-## What Would Change My Mind
+---
 
-The chapter's central claim is that screening must be judged by population-level mortality reduction, because survival statistics, detection counts, and even PPV can each mislead. What would revise this? A large, well-conducted randomized trial of a multi-cancer early detection blood test (the NHS-Galleri trial enrolling ~140,000 people, or the NCI's prospective MCED studies) that demonstrated a clear reduction in *cancer-specific mortality* — not just more cancers found, not just longer survival from diagnosis, but fewer deaths — with an acceptable false-positive and overdiagnosis burden, would show that broad blood-based screening can deliver real benefit at population scale [NHS-Galleri; NCI MCED program]. Conversely, if such trials showed the now-familiar pattern — more diagnoses, better survival statistics, unchanged mortality — it would confirm that the biases described here remain the binding constraint on any new screening technology, however sophisticated.
+## Survival statistics and when to trust them
 
-## Still Puzzling
+A pervasive error in the public understanding of screening is treating improved survival statistics as proof of benefit. They are not. The opening paragraph of every news story about a screening test announces improved five-year or ten-year survival among people whose cancers were found early. Lead-time bias guarantees this result even with zero therapeutic benefit. Length-time bias adds to it. Overdiagnosis inflates the denominator with patients who were never going to die of the disease.
 
-- For multi-cancer detection tests, the curable early-stage cancers shed the least circulating tumor DNA — precisely the cancers screening most needs to catch. Can sensitivity at stage I ever be high enough to matter, or is there a floor set by tumor biology? [contested]
-- How should overdiagnosis be counted when it is, by construction, invisible at the individual level? We can never know which particular screen-detected patient was overdiagnosed — only the population rate. What does informed consent even mean under that uncertainty?
-- Risk-stratified screening (polygenic scores, family history, biomarkers) promises to raise prevalence in the screened group and thus PPV. But does concentrating screening on the highest-risk people leave too many cancers in the larger, lower-risk majority where most absolute cases actually arise?
+The correct question is: did the screened group die of this cancer less often than the unscreened group? Five-year survival among screen-detected cases versus symptom-detected cases is the wrong comparison. It is a population-level version of the dead-end in the worked example — confusing a metric that is guaranteed to look better with a metric that would actually show benefit.
+
+This does not mean survival statistics are useless. For comparing treatments in patients who are already diagnosed — where lead-time is identical across arms — survival statistics are appropriate. For evaluating screening programs, they are not. The NLST — the National Lung Screening Trial — showed that low-dose CT screening in heavy smokers reduced lung cancer mortality by approximately 20%. That is the kind of endpoint that licenses a recommendation.
+
+---
+
+## What would change this picture
+
+The chapter's central claim is that screening must be judged by population-level mortality reduction, because survival statistics, detection counts, and even PPV can each mislead. The finding that would revise this: a large, well-conducted randomized trial of a multi-cancer early detection blood test that demonstrated a clear reduction in cancer-specific mortality — not just more cancers found, not just longer survival from diagnosis, but fewer deaths — with an acceptable false-positive and overdiagnosis burden. The NHS-Galleri trial and NCI prospective MCED studies are designed to answer exactly this question. If they show mortality benefit, the framework extends to blood-based multi-cancer screening. If they show improved survival statistics with unchanged mortality, the biases described here remain the binding constraint on every new screening technology.
+
+---
+
+## Still open
+
+For multi-cancer detection tests, the curable early-stage cancers shed the least circulating tumor DNA — precisely the cancers screening most needs to find. Whether sensitivity at stage I can ever be high enough to matter for the cancers that would most benefit is a question set partly by tumor biology, not only by assay technology.
+
+Overdiagnosis is invisible at the individual level by construction. We can estimate population-level overdiagnosis rates from excess diagnoses above expected incidence, but we cannot know which particular patient was overdiagnosed. What informed consent means under that uncertainty — how to counsel a patient whose screen-detected tumor might be a threat or might be nothing — is unresolved.
+
+Risk-stratified screening promises to raise prevalence in the screened group and thus PPV, by targeting people with elevated genetic risk, family history, or prior biomarker exposure. But concentrating screening on the highest-risk group may leave too many cancers in the larger, lower-risk majority, where most absolute cases arise. The right trade-off between depth of coverage and population breadth is not established.
+
+---
+
+## LLM Exercises
+
+1. **(Definitions)** Define sensitivity, specificity, and positive predictive value in one sentence each. State which of the three depends on disease prevalence and construct a one-sentence explanation of why.
+
+2. **(2×2 calculation)** A mammography program has sensitivity 85% and specificity 90%. In women aged 40 to 49, breast cancer prevalence at screening is approximately 0.4%. Build the full 2×2 table on 100,000 women, compute PPV, and interpret the result in plain language. Repeat for a 70-year-old cohort with prevalence 1.2%, and explain in one sentence why the PPV differs in terms of who is being tested. State what additional evidence — beyond PPV — you would need before concluding the program saves lives in either group.
+
+3. **(Bias identification)** A new screening test reports that screen-detected patients have five-year survival of 80% versus 45% for symptom-detected patients. A colleague concludes the test nearly doubles survival. Identify each of the three biases — lead-time, length-time, overdiagnosis — that could each, individually, produce this gap with zero true benefit. For each bias, describe one feature of a study design that would let you rule it out.
+
+4. **(Wilson and Jungner applied)** Apply the Wilson and Jungner criteria to PSA screening for prostate cancer. Identify which criteria it satisfies and which it strains, explain why major randomized trials produced conflicting results on mortality benefit, and state the specific feature of prostate cancer natural history that makes overdiagnosis an irreducible concern.
+
+5. **(Multi-cancer test evaluation)** A company marketing a multi-cancer early detection blood test claims it has 90% sensitivity and 99% specificity across 50 cancer types. A journalist writes that the test "could save hundreds of thousands of lives." Using the PPV framework, the three biases, and the Wilson and Jungner criteria, construct a methodical evaluation of whether the claim is warranted. Identify the single most important piece of evidence — not yet available — that would settle whether the test saves lives.
+
+---
 
 ## References
 
@@ -126,12 +124,7 @@ The chapter's central claim is that screening must be judged by population-level
 - National Cancer Institute. *Cancer Screening Overview.* https://www.cancer.gov/about-cancer/screening
 - Wilson JMG, Jungner G. *Principles and Practice of Screening for Disease.* WHO, 1968.
 - US Preventive Services Task Force. Screening recommendations (breast, cervical, colorectal, lung, prostate). https://www.uspreventiveservicestaskforce.org
-- National Lung Screening Trial (NLST) Research Team. Reduced lung-cancer mortality with low-dose CT screening. *N Engl J Med* 2011.
-- European Randomized Study of Screening for Prostate Cancer (ERSPC); PLCO trial — conflicting PSA screening mortality results.
-- NHS-Galleri trial (multi-cancer early detection); NCI MCED prospective studies.
+- National Lung Screening Trial (NLST) Research Team. (2011). Reduced lung-cancer mortality with low-dose computed tomographic screening. *New England Journal of Medicine*, 365(5), 395–409.
+- Schröder, F. H., et al. (2009). Screening and prostate-cancer mortality in a randomized European study. *New England Journal of Medicine*, 360(13), 1320–1328. [ERSPC]
+- Andriole, G. L., et al. (2009). Mortality results from a randomized prostate-cancer screening trial. *New England Journal of Medicine*, 360(13), 1310–1319. [PLCO]
 - National Cancer Institute. *Tests and Procedures Used to Diagnose Cancer.* https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis
-
-## Prompts
-
-*No figures have been generated for this chapter yet.*
-*Run the Cowork enrichment pass to populate this section.*
